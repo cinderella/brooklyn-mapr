@@ -58,7 +58,7 @@ abstract class AbstractM3Node extends SoftwareProcessEntity implements Startable
     }
     protected Map<String,Object> obtainProvisioningFlags(MachineProvisioningLocation location) {
         Map flags = [:]; //super.obtainProvisioningFlags(location); 
-        flags.templateBuilder = new PortableTemplateBuilder().
+        /*flags.templateBuilder = new PortableTemplateBuilder().
             osFamily(OsFamily.UBUNTU).osVersionMatches("11.04").os64Bit(true).
             minRam(2560);
         flags.userName = "ubuntu";
@@ -67,7 +67,7 @@ abstract class AbstractM3Node extends SoftwareProcessEntity implements Startable
             [ 22, 2048, 5660, 5181, 7221, 7222, 8080, 8443, 9001, 9997, 9998, 50030, 50060, 60000 ] +
             // 3888 discovered also to be needed, others included for good measure
             [ 2888, 3888 ]
-            ;
+            ;*/
         return flags;        
     }
     
