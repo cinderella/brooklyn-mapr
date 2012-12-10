@@ -38,7 +38,8 @@ public class MyM3App extends AbstractApplication {
     public static void main(String[] args) {
         MyM3App app = new MyM3App();
         BrooklynLauncher.manage(app, 8081);
-        app.start( new LocationRegistry().getLocationsById(["aws-ec2:us-east-1"]) );
+//        app.start( new LocationRegistry().getLocationsById(["aws-ec2:us-east-1"]) );
+        app.start( new LocationRegistry().getLocationsById(["named:cinderella-ec2"]) );
     }
     
 }

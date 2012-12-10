@@ -1,6 +1,19 @@
 
 
 
+## Update jclouds timeout properties ##
+
+Provisioning vms via Cinderella currently takes longer than the default timeout period in jclouds. To work around this issue,
+we have to set a couple of properties in the JcloudsUtil class to increase the timeout period.
+
+Add the following to the JcloudsUtil.buildComputeService() method and make the updated brooklyn-core jar available:
+
+```
+properties.setProperty(Constants.PROPERTY_SO_TIMEOUT, "0");
+properties.setProperty(Constants.PROPERTY_TIMEOUTS_PREFIX + "InstanceClient.runInstancesInRegion", "4800000");
+```
+
+
 ## Configuration ##
 
 Add the following to `~/.brooklyn/brooklyn.properties`:
@@ -27,3 +40,7 @@ From `brooklyn-mapr`, run `mvn clean install`
 
 1. Start Cinderella instance
 2. From cmd line: `brooklyn launch -a io.cloudsoft.mapr.MyM3App -l named:cinderella-ec2`
+
+    or
+
+   From your IDE: run/debug the main method in `io.cloudsoft.mapr.MyM3App`
